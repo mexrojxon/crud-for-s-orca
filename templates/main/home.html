@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{%  load static %}
+
+{% block title %} Home Page {% endblock title %}
+{% block content %}
+    <div class="container mt-5" style="padding-top: 50px;">
+    	<div class="d-flex">
+			<h1 class="mr-auto ml-2" style="color:green; font-weight: bold;">All Posts</h1>
+    	</div>
+    	<ul class="list-group">
+
+			{% for s_orca in object_list  %}
+                <li class="list-group-item d-flex align-items-center">
+                	<a style="text-decoration: none; color: black;" href="{% url 's_orca:detail' s_orca.pk %}">
+                	{{s_orca.title}}
+					</a>
+
+                	<div class="ml-auto">
+
+                		<a href="{% url 's_orca:update' s_orca.id %}" class="btn btn-primary">
+                			<i class="bi bi-pencil text-white"></i>
+                		</a>
+                		<a onclick="return confirm('Siz chindan ham ushbu postni o\'chirasizmi')" href="{% url 's_orca:delete' s_orca.id %}" class="btn btn-danger">
+                			<i class="bi bi-trash text-white"></i>
+                		</a>
+                	</div>
+				</li>
+            {% endfor %}
+
+			{% if not object_list %}
+				<div class="alert alert-warning">Hozirda postlar mavjud emas!</div>
+			{% endif %}
+		</ul>
+    </div>
+
+{% endblock %}
