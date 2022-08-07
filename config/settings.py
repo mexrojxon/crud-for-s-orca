@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sorca',
-        'USER': 'dbuser',
-        'PASSWORD': "111222",
+        'NAME': 'crud',
+        'USER': 'crud',
+        'PASSWORD': "parol123",
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -129,7 +129,7 @@ STATIC_ROOT = BASE_DIR / 'static'
 
 STATICFILES_DIRS = BASE_DIR / 'assets',
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 
